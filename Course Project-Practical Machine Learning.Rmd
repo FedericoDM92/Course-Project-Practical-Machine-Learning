@@ -1,0 +1,41 @@
+---
+title: "Course Project-Practical Machine Learning"
+author: "Federico Di Marco"
+date: "2022-08-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+In this project data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants are used to predict the quality of the exercise.
+
+Four models are trained: 
+-> Decision Tree 
+-> Random Forest 
+-> Gradient Boosted Trees 
+-> Support Vector Machine 
+
+Prediction using a validation set randomly selected from the training csv data is done to calculate the accuracy and out of sample error rate. The best model is used it to predict 20 cases using the test csv set.
+
+## Preparation
+Loading libraries and data. Moreover, the seed is set to ensure the reprotusibility of the results.
+```{r Preparation}
+#Libraries
+library(lattice)
+library(ggplot2)
+library(caret)
+library(kernlab)
+library(rattle)
+library(corrplot)
+
+#Data
+traincsv <- read.csv("./data/pml-training.csv")
+testcsv <- read.csv("./data/pml-testing.csv")
+
+#Seed
+set.seed(1111)
+```
+
